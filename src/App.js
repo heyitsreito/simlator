@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import './App.css'; 
+import UniversitySimulator from './components/UniversitySimulator';
+import PricePlans from './components/PricePlans';
+import WhyMalaysia from './components/WhyMalaysia';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <section id="simulator">
+          <UniversitySimulator />
+        </section>
+        <section id="plans">
+          <PricePlans />
+        </section>
+        <section id="why-malaysia">
+          <WhyMalaysia />
+        </section>
+        <section id="faq">
+          <FAQ />
+        </section>
+      </main>
+      <Footer />
     </div>
   );
 }
