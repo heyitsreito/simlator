@@ -28,9 +28,9 @@ export default function Header() {
           {/* 相談予約ボタン */}
           <div className="flex-1 flex justify-end">
             <a
-              href="https://calendar.app.google/2CEuHcGPiMgrNE4w5"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://calendar.app.google/2CEuHcGPiMgrNE4w5" // Google Calendarのリンク
+              target="_blank" // 新しいタブで開く
+              rel="noopener noreferrer" // セキュリティ対策
               className="bg-indigo-500 text-white py-2 px-4 rounded hover:bg-green-500 transition duration-200 cursor-pointer"
             >
               無料相談
@@ -41,11 +41,7 @@ export default function Header() {
 
       {/* スライドアニメーションセクション */}
       <div className="bg-red-500 text-white py-2 overflow-hidden">
-        <div
-          className="whitespace-nowrap animate-slide"
-          aria-live="polite" // アクセシビリティ改善
-          role="alert"
-        >
+        <div className="whitespace-nowrap animate-slide">
           海外不正送金を謳うエージェントには注意
         </div>
       </div>
