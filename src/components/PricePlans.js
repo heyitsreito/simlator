@@ -1,9 +1,9 @@
-import { Check } from 'lucide-react'
+import { Check } from 'lucide-react';
 
 const plans = [
   {
-    name: "ベーシック",
-    price: "50,000",
+    name: "ベーシック (単発）",
+    price: "5,000",
     features: [
       "大学選びのアドバイス",
       "出願書類の確認",
@@ -12,7 +12,7 @@ const plans = [
   },
   {
     name: "スタンダード",
-    price: "100,000",
+    price: "20,000",
     features: [
       "大学選びのアドバイス",
       "出願書類の作成支援",
@@ -22,17 +22,14 @@ const plans = [
   },
   {
     name: "プレミアム",
-    price: "200,000",
+    price: "50,000",
     features: [
       "大学選びのアドバイス",
       "出願書類の作成支援",
       "ビザ申請代行",
-      "住居手配",
-      "空港送迎",
-      "24時間サポート",
     ],
   },
-]
+];
 
 export default function PricePlans() {
   return (
@@ -42,9 +39,12 @@ export default function PricePlans() {
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">料金プラン</h2>
           <p className="mt-4 text-xl text-gray-600">あなたのニーズに合わせて選べる3つのプラン</p>
         </div>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-3">
           {plans.map((plan) => (
-            <div key={plan.name} className="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+            <div
+              key={plan.name}
+              className="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm transition-transform duration-200 ease-in-out transform hover:-translate-y-2 hover:shadow-lg"
+            >
               <div className="p-6">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">{plan.name}</h3>
                 <p className="mt-4 text-3xl font-extrabold text-gray-900">¥{plan.price}</p>
@@ -63,5 +63,5 @@ export default function PricePlans() {
         </div>
       </div>
     </div>
-  )
+  );
 }
