@@ -11,7 +11,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);  // 開いているFAQのインデックスを管理
+  const [openIndex, setOpenIndex] = useState(null); // 開いているFAQのインデックスを管理
 
   const toggleFAQ = (index) => {
     // 開いているインデックスがクリックされた場合は閉じる、それ以外の場合は新しいインデックスを開く
@@ -29,8 +29,9 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div key={index} className="border-b border-gray-200">
               <button
-                className="flex w-full items-center justify-between py-4 text-left"
+                className="flex w-full items-center justify-between py-4 text-left focus:outline-none"
                 onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndex === index} // アクセシビリティ対応
               >
                 <span className="text-lg font-medium text-gray-900">{faq.question}</span>
                 {openIndex === index ? (
@@ -39,11 +40,17 @@ export default function FAQ() {
                   <ChevronDown className="h-5 w-5 text-gray-500" />
                 )}
               </button>
-              {openIndex === index && (
-                <div className="pb-4">
-                  <p className="text-gray-500">{faq.answer}</p>
-                </div>
-              )}
+              <div
+                className={`overflow-hidden transition-max-height duration-300 ${
+                  openIndex === index ? "max-h-screen" : "max-h-0"
+                }`}
+              >
+                {openIndex === index && (
+                  <div className="pb-4">
+                    <p className="text-gray-500">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
