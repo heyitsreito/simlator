@@ -6,22 +6,21 @@ import UniversitySimulator from './components/UniversitySimulator';
 import PricePlans from './components/PricePlans';
 import WhyMalaysia from './components/WhyMalaysia';
 import FAQPage from './components/FAQPage';
-import BlogPages from './components/BlogPages'; // Blogページをインポート
+import BlogPages from './components/BlogPages';
 
 function App() {
   return (
-    <Router basename="/simulator"> {/* 必要に応じて basename を設定 */}
+    <Router>
       <div className="App">
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<UniversitySimulator />} /> {/* デフォルトのルート */}
+            <Route path="/" element={<UniversitySimulator />} /> {/* デフォルトルート */}
             <Route path="/simulator" element={<UniversitySimulator />} />
             <Route path="/plans" element={<PricePlans />} />
             <Route path="/why-malaysia" element={<WhyMalaysia />} />
             <Route path="/faq" element={<FAQPage />} />
-            <Route path="/blog" element={<BlogPages />} /> {/* Blogルート */}
-            <Route path="*" element={<div>404 - ページが見つかりません</div>} /> {/* 404ページ */}
+            <Route path="/blog" element={<BlogPages />} />
           </Routes>
         </main>
         <Footer />

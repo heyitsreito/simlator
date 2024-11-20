@@ -14,7 +14,6 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null); // 開いているFAQのインデックスを管理
 
   const toggleFAQ = (index) => {
-    // 開いているインデックスがクリックされた場合は閉じる、それ以外の場合は新しいインデックスを開く
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -32,6 +31,7 @@ export default function FAQ() {
                 className="flex w-full items-center justify-between py-4 text-left focus:outline-none"
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={openIndex === index} // アクセシビリティ対応
+                aria-controls={`faq-content-${index}`}
               >
                 <span className="text-lg font-medium text-gray-900">{faq.question}</span>
                 {openIndex === index ? (
@@ -41,15 +41,14 @@ export default function FAQ() {
                 )}
               </button>
               <div
-                className={`overflow-hidden transition-max-height duration-300 ${
-                  openIndex === index ? "max-h-screen" : "max-h-0"
+                id={`faq-content-${index}`}
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? "max-h-96 ease-in-out" : "max-h-0"
                 }`}
               >
-                {openIndex === index && (
-                  <div className="pb-4">
-                    <p className="text-gray-500">{faq.answer}</p>
-                  </div>
-                )}
+                <div className="pb-4">
+                  <p className="text-gray-500">{faq.answer}</p>
+                </div>
               </div>
             </div>
           ))}
